@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="memcached-learning" />
         <module name="multithread-learning" />
+        <module name="quartz-learning" />
         <module name="zookeeper-learning" />
       </profile>
     </annotationProcessing>

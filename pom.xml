@@ -12,6 +12,7 @@
         <module>memcached-learning</module>
         <module>multithread-learning</module>
         <module>zookeeper-learning</module>
+        <module>quartz-learning</module>
     </modules>
 
     <name>learning-projects</name>
@@ -51,6 +52,11 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
         </dependency>
     </dependencies>
     <build>
