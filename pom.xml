@@ -13,6 +13,7 @@
         <module>multithread-learning</module>
         <module>zookeeper-learning</module>
         <module>quartz-learning</module>
+        <module>akka-learning</module>
     </modules>
 
     <name>learning-projects</name>

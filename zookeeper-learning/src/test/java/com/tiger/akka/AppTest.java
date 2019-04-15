@@ -1,4 +1,4 @@
-package tiger;
+package com.tiger.akka;
 
 import static org.junit.Assert.assertTrue;
 
