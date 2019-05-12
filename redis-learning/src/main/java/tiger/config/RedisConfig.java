@@ -15,6 +15,8 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import tiger.listener.CorsMessageListener;
 import tiger.service.ReceiverService;
 
+import java.util.concurrent.Executors;
+
 @Configuration
 @Slf4j
 public class RedisConfig {
@@ -32,6 +34,8 @@ public class RedisConfig {
         container.setConnectionFactory(connectionFactory);
         container.addMessageListener(listenerAdapter(new ReceiverService()), new ChannelTopic(topic));
         container.addMessageListener(new CorsMessageListener(),new PatternTopic(pattern));
+        // 设置执行任务的线程池，如果不设置，则main结束后，订阅通知会退出
+        container.setTaskExecutor(Executors.newFixedThreadPool(8));
         log.info("init message adapter");    
         return container;
     }

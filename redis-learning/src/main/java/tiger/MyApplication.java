@@ -21,16 +21,16 @@ public class MyApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         context = SpringApplication.run(MyApplication.class, args);
-        log.info("start");
-        addHook(context);
-        try {
-            LOCK.lock();
-            STOP.await();
-        } catch (InterruptedException e) {
-            log.warn(" service   stopped, interrupted by other thread!", e);
-        } finally {
-            LOCK.unlock();
-        }
+//        log.info("start");
+//        addHook(context);
+//        try {
+//            LOCK.lock();
+//            STOP.await();
+//        } catch (InterruptedException e) {
+//            log.warn(" service   stopped, interrupted by other thread!", e);
+//        } finally {
+//            LOCK.unlock();
+//        }
     }
 
     @Override
@@ -39,24 +39,24 @@ public class MyApplication implements CommandLineRunner {
     }
 
 
-    private static void addHook(ConfigurableApplicationContext context) {
-        // JVM进程结束时会执行
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            try {
-                context.stop();
-            } catch (Exception e) {
-                log.error("StartMain stop exception ", e);
-            }
-
-            log.info("jvm exit, all service stopped.");
-            try {
-                LOCK.lock();
-                STOP.signal();
-            } finally {
-                LOCK.unlock();
-            }
-        }, "StartMain-shutdown-hook"));
-
-
-    }
+//    private static void addHook(ConfigurableApplicationContext context) {
+//        // JVM进程结束时会执行
+//        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//            try {
+//                context.stop();
+//            } catch (Exception e) {
+//                log.error("StartMain stop exception ", e);
+//            }
+//
+//            log.info("jvm exit, all service stopped.");
+//            try {
+//                LOCK.lock();
+//                STOP.signal();
+//            } finally {
+//                LOCK.unlock();
+//            }
+//        }, "StartMain-shutdown-hook"));
+//
+//
+//    }
 }
