@@ -13,6 +13,8 @@
         <module name="multithread-learning" />
         <module name="quartz-learning" />
         <module name="redis-learning" />
+        <module name="spring-learning" />
+        <module name="springboot-learning" />
         <module name="zookeeper-learning" />
       </profile>
     </annotationProcessing>
@@ -20,6 +22,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="redis-learning" options="-parameters" />
+      <module name="springboot-learning" options="-parameters" />
     </option>
   </component>
 </project>

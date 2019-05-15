@@ -1,4 +1,4 @@
-package tiger.listener;
+package com.tiger.springboot.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.Message;

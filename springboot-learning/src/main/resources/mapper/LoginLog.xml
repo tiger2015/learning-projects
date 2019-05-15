@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiger.springboot.dao.LoginLogDao">
+    <sql id="BASE_TABLE">
+        login_log
+    </sql>
+    <sql id="BASE_COLUMN">
+        login_time,user_name,ip
+    </sql>
+    <insert id="insert" parameterType="com.tiger.springboot.entity.LoginLog">
+          insert into <include refid="BASE_TABLE"/>  values
+          <trim prefix="(" suffix=")" suffixOverrides=",">
+              #{userName}, #{loginTime}, #{loginIp}
+          </trim>
+
+    </insert>
+</mapper>

@@ -1,4 +1,4 @@
-package tiger.config;
+package com.tiger.springboot.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,8 +12,8 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
-import tiger.listener.CorsMessageListener;
-import tiger.service.ReceiverService;
+import com.tiger.springboot.listener.CorsMessageListener;
+import com.tiger.springboot.service.ReceiverService;
 
 import java.util.concurrent.Executors;
 
