@@ -5,13 +5,14 @@
         login_log
     </sql>
     <sql id="BASE_COLUMN">
-        login_time,user_name,ip
+        user_name,login_time,ip,url
     </sql>
     <insert id="insert" parameterType="com.tiger.springboot.entity.LoginLog">
-          insert into <include refid="BASE_TABLE"/>  values
-          <trim prefix="(" suffix=")" suffixOverrides=",">
-              #{userName}, #{loginTime}, #{loginIp}
-          </trim>
-
+        insert into
+        <include refid="BASE_TABLE"/> (user_name,login_time,ip,url)
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{userName}, now(), #{loginIp}, #{url}
+        </trim>
     </insert>
 </mapper>

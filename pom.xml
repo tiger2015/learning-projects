@@ -18,6 +18,7 @@
         <module>redis-learning</module>
         <module>spring-learning</module>
         <module>springboot-learning</module>
+        <module>proxy-learning</module>
     </modules>
 
     <name>learning-projects</name>

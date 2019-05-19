@@ -11,6 +11,7 @@
         <module name="javasocket-learning" />
         <module name="memcached-learning" />
         <module name="multithread-learning" />
+        <module name="proxy-learning" />
         <module name="quartz-learning" />
         <module name="redis-learning" />
         <module name="spring-learning" />

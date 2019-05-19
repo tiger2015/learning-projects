@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiger.springboot.dao.UserDao">
+    <sql id="table_name">user</sql>
+
+    <insert id="insert" parameterType="com.tiger.springboot.entity.User">
+        insert into
+        <include refid="table_name"/>
+        (user_name,user_password,user_email,user_phone_number,register_time)
+        values
+        (#{userName},md5(#{password}),#{email},#{phoneNumber},now())
+    </insert>
+    <select id="select" parameterType="string" resultMap="user">
+        select * from
+        <include refid="table_name"/>
+        where user_name=#{userName}
+    </select>
+
+    <resultMap id="user" type="com.tiger.springboot.entity.User">
+        <result column="user_name" property="userName"></result>
+        <result column="user_password" property="password"></result>
+        <result column="user_phone_number" property="phoneNumber"></result>
+        <result column="user_email" property="email"></result>
+        <result column="register_time" property="registerTime"></result>
+    </resultMap>
+</mapper>

@@ -1,7 +1,6 @@
 package com.tiger.socket;
 
 
-
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
@@ -33,4 +32,6 @@ public class ByteBufferTest {
         System.out.println("remain:" + buffer.remaining()); // 缓存中剩余的字节数
         System.out.println("============");
     }
+
+
 }

@@ -6,6 +6,7 @@ public class LoginLog {
     private String userName;
     private Date loginTime;
     private String loginIp;
+    private String url;
 
     public String getUserName() {
         return userName;
@@ -29,5 +30,13 @@ public class LoginLog {
 
     public void setLoginIp(String loginIp) {
         this.loginIp = loginIp;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
