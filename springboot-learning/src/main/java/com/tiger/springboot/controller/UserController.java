@@ -29,7 +29,7 @@ public class UserController {
     @ResponseBody
     public Object login(HttpServletRequest request, @RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) {
         User user = userService.findUser(userName);
-        if(user == null || !userName.equals(user.getUserName()) || !user.getPassword().equals(CommonUtil.md5Encode(password,"utf-8"))){
+        if (user == null || !userName.equals(user.getUserName()) || !user.getPassword().equals(CommonUtil.md5Encode(password, "utf-8"))) {
             return new Result<>(ResultEnum.USER_ERROR);
         }
         String remoteAddr = request.getRemoteAddr();
@@ -50,7 +50,7 @@ public class UserController {
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
         userService.add(user);
-        return  new Result<>(ResultEnum.SUCCESS);
+        return new Result<>(ResultEnum.SUCCESS);
     }
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)

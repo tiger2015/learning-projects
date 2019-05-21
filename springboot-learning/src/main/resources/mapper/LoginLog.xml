@@ -7,12 +7,38 @@
     <sql id="BASE_COLUMN">
         user_name,login_time,ip,url
     </sql>
+    <resultMap id="loginLog" type="com.tiger.springboot.entity.LoginLog">
+        <result property="userName" column="user_name"/>
+        <result property="loginTime" column="login_time" javaType="java.util.Date"/>
+        <result property="url" column="url"/>
+        <result property="loginIp" column="ip"/>
+    </resultMap>
+
     <insert id="insert" parameterType="com.tiger.springboot.entity.LoginLog">
         insert into
-        <include refid="BASE_TABLE"/> (user_name,login_time,ip,url)
+        <include refid="BASE_TABLE"/>
+        (user_name,login_time,ip,url)
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
             #{userName}, now(), #{loginIp}, #{url}
         </trim>
     </insert>
+
+    <select id="selectLoginLogByTime" resultMap="loginLog">
+        select id,
+        <include refid="BASE_COLUMN"/>
+        from
+        <include refid="BASE_TABLE"/>
+        where login_time between str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s') and
+        str_to_date(#{endDate},'%Y-%m-%d %H:%i:%s')
+    </select>
+
+    <select id="selectLoginLogByUserName" resultMap="loginLog">
+        select id,
+        <include refid="BASE_COLUMN"/>
+        from
+        <include refid="BASE_TABLE"/>
+        where user_name=#{userName} order by login_time desc
+
+    </select>
 </mapper>

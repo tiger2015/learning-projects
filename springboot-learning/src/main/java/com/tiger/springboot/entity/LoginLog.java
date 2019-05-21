@@ -1,8 +1,11 @@
 package com.tiger.springboot.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class LoginLog {
+public class LoginLog implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String userName;
     private Date loginTime;
     private String loginIp;

@@ -77,12 +77,12 @@
             </build>
         </profile>
         <profile>
-            <id>prod</id>
+            <id>pro</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <environment>prod</environment>
+                <environment>pro</environment>
             </properties>
             <build>
                 <resources>
