@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiger.springboot.dao.ConsumerRecordDao">
+    <sql id="tableName">
+        consumer_record
+    </sql>
+
+    <sql id="columnName">
+        id, consumer_date, consumer_amount, consumer_type, user_name, consumer_desc
+    </sql>
+    <resultMap id="consumerRecord" type="com.tiger.springboot.entity.ConsumerRecord">
+        <id column="id" property="id"/>
+        <result column="consumer_date" property="consumerDate"/>
+        <result column="consumer_amount" property="consumerAmount"/>
+        <result column="consumer_type" property="consumerType.type"/>
+        <result column="user_name" property="user"/>
+        <result column="consumer_desc" property="description"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.tiger.springboot.entity.ConsumerRecord">
+        insert into
+        <include refid="tableName"/>
+        (consumer_date, consumer_amount, consumer_type, user_name, consumer_desc)
+        values(#{consumerDate}, #{consumerAmount}, #{consumerType.type}, #{user}, #{description})
+    </insert>
+
+    <delete id="delete">
+        delete from
+        <include refid="tableName"/>
+        where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectAll" resultMap="consumerRecord">
+        select
+        <include refid="columnName"/>
+        from
+        <include refid="tableName"/>
+
+    </select>
+
+    <select id="selectByUser" parameterType="string" resultMap="consumerRecord">
+        select
+        <include refid="columnName"/>
+        from
+        <include refid="tableName"/>
+        where user_name=#{user}
+    </select>
+
+    <select id="selectByDate" resultMap="consumerRecord">
+        select
+        <include refid="columnName"/>
+        from
+        <include refid="tableName"/>
+        where <![CDATA[  DATE_FORMAT(consumer_date, '%Y-%m-%d') >= DATE_FORMAT(#{start}, '%Y-%m-%d') and  DATE_FORMAT(consumer_date, '%Y-%m-%d') <= DATE_FORMAT(#{end}, '%Y-%m-%d')]]>
+    </select>
+
+    <select id="selectByUserAndDate" resultMap="consumerRecord">
+        select
+        <include refid="columnName"/>
+        from
+        <include refid="tableName"/>
+        where user_name=#{user} and
+        <![CDATA[  DATE_FORMAT(consumer_date, '%Y-%m-%d') >= DATE_FORMAT(#{start}, '%Y-%m-%d') and  DATE_FORMAT(consumer_date, '%Y-%m-%d') <= DATE_FORMAT(#{end}, '%Y-%m-%d')]]>
+    </select>
+    <select id="selectByType" parameterType="string" resultMap="consumerRecord">
+        select
+        <include refid="columnName"/>
+        from
+        <include refid="tableName"/>
+        where consumer_type = #{type}
+    </select>
+
+    <select id="selectByTypeAndUser" resultMap="consumerRecord">
+        select
+        <include refid="columnName"/>
+        from
+        <include refid="tableName"/>
+        where consumer_type = #{type} and user_name=#{user}
+    </select>
+</mapper>

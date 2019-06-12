@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="akka-learning" />
+        <module name="common-util" />
         <module name="javasocket-learning" />
         <module name="memcached-learning" />
         <module name="multithread-learning" />

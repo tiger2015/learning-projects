@@ -1,7 +1,5 @@
 package com.tiger.multithread.concurrent;
 
-import com.tiger.multithread.edamodel.Event;
-
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;

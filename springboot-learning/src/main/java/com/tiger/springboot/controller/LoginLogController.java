@@ -1,9 +1,8 @@
 package com.tiger.springboot.controller;
 
-import com.tiger.springboot.entity.LoginLog;
-import com.tiger.springboot.entity.Result;
-import com.tiger.springboot.entity.ResultEnum;
+import com.tiger.springboot.entity.*;
 import com.tiger.springboot.service.LoginLogService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/loginLog")
+@Slf4j
 public class LoginLogController {
 
     @Autowired
@@ -24,12 +24,24 @@ public class LoginLogController {
     }
 
 
-    @RequestMapping(value = "/list/{userName}", method = {RequestMethod.GET})
+    @RequestMapping(value = "/list/{pageNumber}", method = {RequestMethod.GET})
     @ResponseBody
-    public Object userLoginLog(@PathVariable String userName){
-        List<LoginLog> logs = loginLogService.listUserLoginLog(userName);
-        System.out.println("============="+logs.get(0).getLoginTime());
+    public Object listLoginLog(@PathVariable int pageNumber) {
+        PageResult<LoginLog> result = loginLogService.listLoginLog(pageNumber);
+        return new Result<>(ResultEnum.SUCCESS, result);
+    }
 
-        return new Result<>(ResultEnum.SUCCESS, logs);
+    @RequestMapping(value = "/list/{userName}/{pageNumber}", method = {RequestMethod.GET})
+    @ResponseBody
+    public Object listLoginLog(@PathVariable String userName, @PathVariable int pageNumber) {
+        PageResult<LoginLog> result = loginLogService.listLoginLog(userName, pageNumber);
+        return new Result<>(ResultEnum.SUCCESS, result);
+    }
+
+    @RequestMapping(value = "/delete", method = {RequestMethod.POST}, consumes = {"application/json"})
+    public Object deleteLoginLog(@RequestBody IdList ids) {
+        log.info(ids.getIds().toString());
+        int count = loginLogService.removeLoginLog(ids.getIds());
+        return new Result<>(ResultEnum.SUCCESS, count);
     }
 }

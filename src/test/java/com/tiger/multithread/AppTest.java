@@ -1,20 +1,22 @@
 package com.tiger.multithread;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+
+import java.util.Calendar;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void test01(){
+        long time = 1559041644;
+        // 1559045144
+        Calendar instance = Calendar.getInstance();
+        instance.setTimeInMillis(time*1000);
+        System.out.println(instance.getTime());
+
     }
 }

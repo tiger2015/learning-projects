@@ -8,6 +8,7 @@
         user_name,login_time,ip,url
     </sql>
     <resultMap id="loginLog" type="com.tiger.springboot.entity.LoginLog">
+        <id column="id" property="id"/>
         <result property="userName" column="user_name"/>
         <result property="loginTime" column="login_time" javaType="java.util.Date"/>
         <result property="url" column="url"/>
@@ -24,13 +25,20 @@
         </trim>
     </insert>
 
+    <select id="selectAllLoginLog" resultMap="loginLog">
+        select id,
+        <include refid="BASE_COLUMN"/>
+        from
+        <include refid="BASE_TABLE"/> order by login_time desc
+    </select>
+
     <select id="selectLoginLogByTime" resultMap="loginLog">
         select id,
         <include refid="BASE_COLUMN"/>
         from
         <include refid="BASE_TABLE"/>
         where login_time between str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s') and
-        str_to_date(#{endDate},'%Y-%m-%d %H:%i:%s')
+        str_to_date(#{endDate},'%Y-%m-%d %H:%i:%s') order by login_time desc
     </select>
 
     <select id="selectLoginLogByUserName" resultMap="loginLog">
@@ -41,4 +49,11 @@
         where user_name=#{userName} order by login_time desc
 
     </select>
+
+    <delete id="deleteLoginLog">
+        delete from <include refid="BASE_TABLE"/> where id in 
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

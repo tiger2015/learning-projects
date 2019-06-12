@@ -19,6 +19,7 @@
         <module>spring-learning</module>
         <module>springboot-learning</module>
         <module>proxy-learning</module>
+        <module>common-util</module>
     </modules>
 
     <name>learning-projects</name>

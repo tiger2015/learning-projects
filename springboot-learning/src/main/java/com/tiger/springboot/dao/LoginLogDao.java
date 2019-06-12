@@ -32,4 +32,17 @@ public interface LoginLogDao {
      * @return
      */
     List<LoginLog> selectLoginLogByUserName(String userName);
+
+    /**
+     * 查询所有的登录记录
+     * @return
+     */
+    List<LoginLog> selectAllLoginLog();
+
+    /**
+     * 根据id删除多个列表
+     * @param ids
+     * @return
+     */
+    int deleteLoginLog(List<Long> ids);
 }

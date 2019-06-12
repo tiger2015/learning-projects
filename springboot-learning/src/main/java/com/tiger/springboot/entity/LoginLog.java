@@ -6,6 +6,7 @@ import java.util.Date;
 public class LoginLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    private long id;
     private String userName;
     private Date loginTime;
     private String loginIp;
@@ -41,5 +42,13 @@ public class LoginLog implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
