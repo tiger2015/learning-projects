@@ -17,7 +17,7 @@ import java.io.IOException;
  * @Description:
  */
 @Configuration
-@PropertySource(value = {"classpath:spring-config.properties"})
+@PropertySource(value = {"classpath:spring-config.properties", "./config/spring-config.properties"}, ignoreResourceNotFound = true)
 @ComponentScan(basePackages = {"com.tiger.zookeeper"})
 @Slf4j
 public class ZooKeeperConfig {
@@ -32,7 +32,7 @@ public class ZooKeeperConfig {
         try {
             zk = new ZooKeeper(zookeeperNodes, sessionTimeout, null);
         } catch (IOException e) {
-            log.error("创建zookeeper连接失败", e);
+            log.error("create zookeeper fail", e);
         }
         return zk;
     }

@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/akka-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javasocket-learning" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/memcached-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/multithread-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/proxy-learning" charset="UTF-8" />
@@ -12,6 +13,9 @@
     <file url="file://$PROJECT_DIR$/redis-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-learning" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/storm-learning" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strom-kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strom-kafka/kafka-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zookeeper-learning" charset="UTF-8" />
   </component>
 </project>

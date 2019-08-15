@@ -1,6 +1,6 @@
 package com.tiger.multithread;
 
-import com.tiger.multithread.singleton.Singleton7;
+import com.tiger.multithread.ch14.Singleton7;
 
 public class Test {
 

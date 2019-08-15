@@ -7,6 +7,8 @@ import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * Hello world!
  */
@@ -28,5 +30,7 @@ public class App {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        CountDownLatch CountDownLatch = new CountDownLatch(1);
+        CountDownLatch.countDown();
     }
 }

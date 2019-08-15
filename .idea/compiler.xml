@@ -10,6 +10,7 @@
         <module name="akka-learning" />
         <module name="common-util" />
         <module name="javasocket-learning" />
+        <module name="kafka-learning" />
         <module name="memcached-learning" />
         <module name="multithread-learning" />
         <module name="proxy-learning" />
@@ -17,6 +18,8 @@
         <module name="redis-learning" />
         <module name="spring-learning" />
         <module name="springboot-learning" />
+        <module name="storm-learning" />
+        <module name="strom-kafka" />
         <module name="zookeeper-learning" />
       </profile>
     </annotationProcessing>

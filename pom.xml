@@ -20,6 +20,9 @@
         <module>springboot-learning</module>
         <module>proxy-learning</module>
         <module>common-util</module>
+        <module>storm-learning</module>
+        <module>strom-kafka</module>
+        <module>kafka-learning</module>
     </modules>
 
     <name>learning-projects</name>
