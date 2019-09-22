@@ -79,7 +79,7 @@
       <build>
         <resources>
           <resource>
-            <directory>src/main/resources</directory>
+            <directory>D:\IDEAProjects\learning-projects\memcached-learning\src\main\resources</directory>
             <includes>
               <include>**/*.properties</include>
               <include>**/*.xml</include>
@@ -92,11 +92,11 @@
       </properties>
     </profile>
     <profile>
-      <id>prod</id>
+      <id>pro</id>
       <build>
         <resources>
           <resource>
-            <directory>E:\IDEAProjects\learning-projects\memcached-learning\src\main\resources</directory>
+            <directory>src/main/resources</directory>
             <excludes>
               <exclude>**/*.properties</exclude>
               <exclude>**/*.xml</exclude>
@@ -105,7 +105,7 @@
         </resources>
       </build>
       <properties>
-        <environment>prod</environment>
+        <environment>pro</environment>
       </properties>
     </profile>
   </profiles>

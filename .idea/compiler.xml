@@ -23,10 +23,15 @@
         <module name="zookeeper-learning" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="spring-cloud-server" target="1.8" />
+      <module name="tttt" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="redis-learning" options="-parameters" />
+      <module name="spring-cloud-server" options="-parameters" />
       <module name="springboot-learning" options="-parameters" />
     </option>
   </component>

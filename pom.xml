@@ -23,6 +23,8 @@
         <module>storm-learning</module>
         <module>strom-kafka</module>
         <module>kafka-learning</module>
+        <module>spring-cloud-server</module>
+        <module>tttt</module>
     </modules>
 
     <name>learning-projects</name>
